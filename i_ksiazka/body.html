@@ -1,0 +1,55 @@
+<div class="task-body">
+    <section class="task-header">
+        <h1 class="title"> iKsiążka </h1>
+        <h1 class="subtitle">Pamięć: Nie określona</h1>
+        <h1 class="subtitle">Limit czasowy: 15s </h1>
+    </section>
+
+    <section class="task-tresc">
+        <p>
+            Zostałeś poproszony o napisanie całkiem prostego systemu generowania emaili na życzenie. 
+        </p>
+        <p>
+            Mając podane imię, które należy wkleić zamiast specjalnego znaku <b>$NAME$</b> wygenerują końcową treść meila. 
+        </p>
+        <p>
+            Podane emaile zakończone są specjalnym słowem kluczem <b>$END$</b>
+        </p>
+    </section>
+
+    <section class="task-io">
+        <h1 class="title task-io-header">Wejście / Wyjście</h1>
+        <p>
+            Na wejściu dostaniesz jedno słowo o długości z przedziału od 10 do 50 znaków. Następnie dostaniesz treść mejla, słowo po slowe, zakończoną słowem <b>$END</b>.
+            Sumarycznie na wejściu dostaniesz nie więcej niż 6 milionów znaków.
+        </p>
+
+        <p>
+            Na wyjściu wypisz każde z wczytanych słów będących treścią mejla zamieniając słowa kluczowe <b>$NAME$</b> na imię wczytane na początku wejścia. Każde słowo należy wypisać w osobnej linijce.
+        </p>
+
+        <h1 class="title task-io-example-title">Przykład: [TEST0]</h1>
+        <div class="columns task-io-example">
+            <div class="column task-input">
+            <h2 class="subtitle"> Wejście </h2>
+<pre>
+Kamil
+Cześć $NAME$!
+Co tam u ciebie?
+$END$
+</pre>
+            </div>
+            <div class="column task-input">
+            <h2 class="subtitle"> Wyjście </h2>
+<pre>
+Cześć
+Kamil!
+Co
+tam
+u
+ciebie?
+</pre>
+            </div>
+        </div>
+    </section>
+</div>

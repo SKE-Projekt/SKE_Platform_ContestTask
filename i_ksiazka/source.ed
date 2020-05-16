@@ -2,21 +2,57 @@
 # Rozwiązanie przykładowe
 # SKEProjekt - Kamil Tokarski
 
+Function zawieraKluczWMiejscu(String napis, String klucz, Int i) : Int
+    Int wynik = 1;
+
+    Int k = 0;
+    Loop (k < Len(klucz) and (i + k) < Len(napis))
+        If (napis[i + k] neq klucz[k])
+            wynik = 0;
+            i = Len(napis);
+        EndIf
+        k = k + 1;
+    EndLoop
+
+    wynik;
+EndFunction
+
+Function zamienNapis(String napis, String klucz, String imie) : String
+    String out = "";
+    Int i = 0;
+
+    Loop(i < ((Len(napis) - Len(klucz)) + 1))
+        If (napis[i] eq "$")
+            Int zaw = zawieraKluczWMiejscu(napis, klucz, i);
+            If (zaw)
+                out = out + imie;
+                i = i + Len(klucz);
+            Else
+                out = out + napis[i];
+                i = i + 1;
+            EndIf
+        Else
+            out = out + napis[i];
+            i = i + 1;
+        EndIf
+    EndLoop
+
+    Loop(i < Len(napis))
+        out = out + napis[i];
+        i = i + 1;
+    EndLoop
+
+    out;
+EndFunction
+
 String SPECIAL_WORD = "$NAME$";
+String END_WORD = "$END$";
 String name;
 Read(name);
 
-Function int() : 123
-
-EndFunction
-
-String k = '123123123"12312312';
-
 String c_word = "";
 Read(c_word);
-Loop(c_word neq "$END$")
-    If (1 or 2)
-
-    EndIf
+Loop (c_word neq END_WORD)
+    Print(zamienNapis(c_word, SPECIAL_WORD, name));
     Read(c_word);
 EndLoop

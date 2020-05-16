@@ -1,4 +1,7 @@
 {
     "title": "iKsiążka",
-    "ord_id": 1
+    "ord_id": 1,
+    "timelimit": 15,
+    "sublimit": 20,
+    "points": 1
 }
