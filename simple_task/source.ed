@@ -1,0 +1,3 @@
+String k;
+Read(k);
+Print("Hello, ", k, "!");
