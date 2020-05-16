@@ -1,0 +1,22 @@
+# Zadanie iKsiążka
+# Rozwiązanie przykładowe
+# SKEProjekt - Kamil Tokarski
+
+String SPECIAL_WORD = "$NAME$";
+String name;
+Read(name);
+
+Function int() : 123
+
+EndFunction
+
+String k = '123123123"12312312';
+
+String c_word = "";
+Read(c_word);
+Loop(c_word neq "$END$")
+    If (1 or 2)
+
+    EndIf
+    Read(c_word);
+EndLoop

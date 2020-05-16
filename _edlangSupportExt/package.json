@@ -1,0 +1,26 @@
+{
+    "name": "edlangsupport",
+    "displayName": "EdlangSupport",
+    "description": "Support for Edlang grammar",
+    "version": "0.0.1",
+    "publisher": "kamiltokarski",
+    "engines": {
+        "vscode": "^1.45.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "edlang",
+            "aliases": ["EdLang", "edlang"],
+            "extensions": [".ed"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "edlang",
+            "scopeName": "source.ed",
+            "path": "./syntaxes/edlang.tmLanguage.json"
+        }]
+    }
+}

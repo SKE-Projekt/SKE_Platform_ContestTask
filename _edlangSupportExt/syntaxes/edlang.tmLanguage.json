@@ -1,0 +1,77 @@
+{
+    "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "EdLang",
+    "patterns": [{
+            "include": "#keywords"
+        },
+        {
+            "include": "#strings"
+        },
+        {
+            "include": "#strings2"
+        },
+        {
+            "include": "#operators"
+        },
+        {
+            "include": "#types"
+        },
+        {
+            "include": "#functions"
+        },
+        {
+            "include": "#comment"
+        }
+    ],
+    "repository": {
+        "types": {
+            "match": "\\b(String|Int|Float|List)\\b",
+            "name": "support.type"
+        },
+        "functions": {
+            "patterns": [{
+                "name": "support.function",
+                "match": "\\b(Function|EndFunction|Print|Read)\\b"
+            }]
+        },
+        "keywords": {
+            "patterns": [{
+                "name": "keyword.control.edlang",
+                "match": "\\b(If|ElseIf|Else|EndIf|Loop|EndLoop)\\b"
+            }]
+        },
+        "operators": {
+            "patterns": [{
+                "name": "keyword.operator",
+                "match": "\\b(\\+|\\-|\\*|\\/|and|or|neq|eq|>|<|geq|\\:)\\b"
+            }]
+        },
+        "strings": {
+            "name": "string.quoted.double.edlang",
+            "begin": "\"",
+            "end": "\"",
+            "patterns": [{
+                "name": "constant.character.escape.edlang",
+                "match": "\\\\."
+            }]
+        },
+        "strings2": {
+            "name": "string.quoted.single.edlang",
+            "begin": "'",
+            "end": "'",
+            "patterns": [{
+                "name": "constant.character.escape.edlang",
+                "match": "\\\\."
+            }]
+        },
+        "comment": {
+            "begin": "#",
+            "end": "\n",
+            "patterns": [{
+                "name": "comment",
+                "match": "*"
+            }]
+        }
+    },
+    "scopeName": "source.ed"
+}
