@@ -1,0 +1,107 @@
+# Zadanie Kółko i krzyżyk
+# Rozwiązanie przykładowe
+# SKEProjekt - Kamil Tokarski
+
+Int player = 2;
+List plansza = {{0, 0, 0}, {0, 0, 0}, {0, 0, 0}};
+
+Function zaznacz(Int y, Int x) : Int
+    plansza[y][x] = player;
+
+    If (player eq 2)
+        player = 1;
+    Else
+        player = 2;
+    EndIf
+EndFunction
+
+Function wypiszElement(Int ele_id) : String
+    If (ele_id eq 0)
+        "   ";
+    ElseIf (ele_id eq 1)
+        " X ";
+    Else
+        " O ";
+    EndIf
+EndFunction
+
+Function wypiszPlansze() : Int
+    Int i = 0;
+    Loop (i < 3)
+        Print("|", wypiszElement(plansza[i][0]), "|",wypiszElement(plansza[i][1]), "|",wypiszElement(plansza[i][2]), "|");
+        If (i < 2)
+            Print("-------------");
+        EndIf
+        i = i + 1;
+    EndLoop
+EndFunction
+
+Function wczytajWejscie() : Int
+    Int y;
+    Int x;
+    Read(y, x);
+    y = y - 1;
+    x = x - 1;
+
+    Loop (neq ((x geq 0 and x leq 2) and (y geq 0 and y leq 2) and (plansza[y][x] eq 0)))
+        Print("NIEDOSTĘPNE POLE");
+        Read(y, x);
+        y = y - 1;
+        x = x - 1;
+    EndLoop
+
+    zaznacz(y, x);
+EndFunction
+
+Function sprawdzCzyKoniec() : Int
+    Int koniec = 0;
+
+    Int i = 0;
+    Loop (i < 3)
+        If ((plansza[i][0] eq plansza[i][1]) and (plansza[i][0] eq plansza[i][2]) and plansza[i][0])
+            koniec = 1;
+        ElseIf ((plansza[0][i] eq plansza[1][i]) and (plansza[0][i] eq plansza[2][i]) and plansza[0][i])
+            koniec = 1;
+        EndIf
+        i = i + 1;
+    EndLoop
+
+    If ((plansza[0][0] eq plansza[1][1]) and (plansza[0][0] eq plansza[2][2]) and plansza[0][0])
+        koniec = 1;
+    ElseIf ((plansza[2][0] eq plansza[1][1]) and (plansza[2][0] eq plansza[0][2]) and plansza[2][0])
+        koniec = 1;
+    EndIf
+
+    Int remis = 1;
+    i = 0;
+    Loop (i < 3)
+        Int j = 0;
+        Loop(j < 3)
+            remis = remis * plansza[i][j];
+            j = j + 1;
+        EndLoop
+        i = i + 1;
+    EndLoop
+
+    If (koniec or remis)
+        wypiszPlansze();
+        If((neq koniec) and remis)
+            Print("Zwycięzca: Nikt");
+            koniec = 1;
+        ElseIf (player eq 2)
+            Print("Zwycięzca: GraczX");
+        Else
+            Print("Zwycięzca: GraczO");
+        EndIf
+    EndIf
+
+    koniec;
+EndFunction
+
+Int skoncz = 0;
+
+Loop (neq skoncz)
+    wypiszPlansze();
+    wczytajWejscie();
+    skoncz = sprawdzCzyKoniec();
+EndLoop

@@ -1,0 +1,102 @@
+<div class="task-body">
+    <section class="task-header">
+        <h1 class="title"> Kółko i krzyżyk </h1>
+        <h1 class="subtitle">Pamięć: Nie określona</h1>
+        <h1 class="subtitle">Limit czasowy: 15s </h1>
+    </section>
+
+    <section class="task-tresc">
+        <p>
+            Po prostu napisz kółko i krzyżyk. Kółko zaczyna.
+        </p>
+        
+    </section>
+
+    <section class="task-io">
+        <h1 class="title task-io-header">Wejście / Wyjście</h1>
+        <p>
+            Twoim zadaniem jest symulowanie ruchów podawanych na wejściu w formie pary dwóch liczb całkowitych oznaczających kolumnę i rząd w którym i-ty gracz chce postawić swój znak. <b>NIE zawsze</b> będzie to pole dostępne lub istniejące na planszy - w takiej sytuacji musisz wypisać komunikat "NIEDOSTĘPNE POLE" i wczytać pozycję jego znaku jeszcze raz. Po poprawnym wykonaniu ruchu wypisz aktualny stan planszy.
+        </p>
+
+        <p>
+            Kiedy jeden z graczy wygra twój program powinien wypisać końcowy stan tablicy oraz zwycięzce(GraczX, GraczO, Nikt); Zapewniamy, że gry zakończą się w mniej niż 10100 ruchach.
+        </p>
+
+        <h1 class="title task-io-example-title">Przykład: [TEST0]</h1>
+        <div class="columns task-io-example">
+            <div class="column task-input">
+            <h2 class="subtitle"> Wejście </h2>
+<pre>
+1 1
+0 0
+2 1
+2 2
+1 2
+1 3
+3 1
+2 3
+3 3
+3 2
+</pre>
+            </div>
+            <div class="column task-input">
+            <h2 class="subtitle"> Wyjście </h2>
+<pre>
+|   |   |   |
+-------------
+|   |   |   |
+-------------
+|   |   |   |
+| O |   |   |
+-------------
+|   |   |   |
+-------------
+|   |   |   |
+NIEDOSTĘPNE POLE
+| O |   |   |
+-------------
+| X |   |   |
+-------------
+|   |   |   |
+| O |   |   |
+-------------
+| X | O |   |
+-------------
+|   |   |   |
+| O | X |   |
+-------------
+| X | O |   |
+-------------
+|   |   |   |
+| O | X | O |
+-------------
+| X | O |   |
+-------------
+|   |   |   |
+| O | X | O |
+-------------
+| X | O |   |
+-------------
+| X |   |   |
+| O | X | O |
+-------------
+| X | O | O |
+-------------
+| X |   |   |
+| O | X | O |
+-------------
+| X | O | O |
+-------------
+| X |   | X |
+| O | X | O |
+-------------
+| X | O | O |
+-------------
+| X | O | X |
+Zwycięzca: Nikt
+
+</pre>
+            </div>
+        </div>
+    </section>
+</div>
