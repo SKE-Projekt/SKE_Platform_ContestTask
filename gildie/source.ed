@@ -1,0 +1,79 @@
+# Zadanie Kółko i krzyżyk
+# Rozwiązanie przykładowe
+# SKEProjekt - Kamil Tokarski
+
+Int n;
+Int m;
+Int i;
+
+List vis = {0};
+List city = {0};
+List graf = {{}};
+
+
+Function DFS(Int v, Int c) : Int
+    # Print("V = ", v, " C = ", c, " LEN = ", Len(graf[v]));
+    vis[v] = c;
+    Int i = 0;
+    Loop(i < Len(graf[v]))
+        If (neq vis[graf[v][i]])
+            DFS(graf[v][i], If (c eq 2) 1; Else 2; EndIf);
+        EndIf
+        i = i + 1;
+    EndLoop
+EndFunction
+
+Read(n, m);
+i = 1;
+Loop (i leq n)
+    graf = graf + {{}};
+    vis = vis + {0};
+    i = i + 1;
+EndLoop
+
+i = 0;
+Loop (i < m)
+    Int a; Int b;
+    Read(a, b);
+
+    List la = {a};
+    List lb = {b};
+
+    graf[a] = graf[a] + lb;
+    graf[b] = graf[b] + la;
+
+    i = i + 1;
+EndLoop
+
+Int fail = 0;
+i = 1;
+Loop(i leq n)
+    If (neq Len(graf[i]))
+        fail = 1;
+        i = n;
+    EndIf
+    i = i + 1;
+EndLoop
+
+If (fail)
+    Print("NIE");
+Else
+    Print("TAK");
+
+    i = 1;
+    Loop(i leq n)
+        If (neq vis[i])
+            DFS(i, 1);
+        EndIf
+        If (vis[i] eq 1)
+            Print("K");
+        Else
+            Print("S");
+        EndIf
+        i = i + 1;
+    EndLoop
+EndIf
+
+
+
+

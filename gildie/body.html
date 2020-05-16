@@ -1,0 +1,70 @@
+<div class="task-body">
+    <section class="task-header">
+        <h1 class="title"> Kółko i krzyżyk </h1>
+        <h1 class="subtitle">Pamięć: Nie określona</h1>
+        <h1 class="subtitle">Limit czasowy: 15s </h1>
+    </section>
+
+    <section class="task-tresc">
+        <p>
+            Król Bajtazar ma nie lada problem. Gildia Szwaczek oraz Gildia Krawców jednocześnie poprosiły o pozwolenie na otwarcie swoich filii w każdym z miast królestwa.
+        </p>
+        <p>
+            W Bajtocji jest  miast. Niektóre z nich są połączone dwukierunkowymi drogami. Każda z gildii wysunęła postulat, aby dla każdego miasta:
+        </p>
+        <ul>
+            <li>znajdowała się w nim filia danej gildii, lub</li>
+            <li>miasto było bezpośrednio połączone drogą z miastem, w którym znajduje się filia tej gildii.</li>
+        </ul>
+        <p>
+            Z drugiej strony, Król Bajtazar wie, że jeśli pozwoli w jednym mieście otworzyć filie obu gildii, to zapewne doprowadzi to do zmowy gildii i zmonopolizowania rynku odzieżowego. Dlatego też poprosił Cię o pomoc.
+        </p>
+    </section>
+
+    <section class="task-io">
+        <h1 class="title task-io-header">Wejście / Wyjście</h1>
+        <p>
+            W pierwszym wierszu standardowego wejścia podane są dwie liczby całkowite <i>n</i> oraz <i>m</i> (obie w zakresie 1-10000), oznaczające odpowiednio liczbę miast i liczbę dróg w Bajtocji. Miasta są ponumerowane od 1 do N. W (i+1)-szym wierszu wejścia znajduje się opis i-tej drogi; zawiera on liczby a oraz b (a != b, a, b <= n) oznaczające, że i-ta droga łączy miasta a oraz b. Każda para miast jest połączona co najwyżej jedną drogą. Drogi nie krzyżują się - jedynie mogą spotykać się w miastach - choć mogą prowadzić tunelami i estakadami.
+        </p>
+
+        <p>
+            W pierwszym wierszu standardowego wyjścia Twój program powinien wypisać jedno słowo: TAK - jeśli da się rozmieścić filie gildii w miastach zgodnie z warunkami zadania lub NIE - w przeciwnym przypadku. W przypadku odpowiedzi TAK, w kolejnych  wierszach powinien znaleźć się opis przykładowego rozmieszczenia filii. -szy wiersz powinien zawierać:
+        </p>
+        <ul>
+            <li>literę K, jeśli w mieście ma się znaleźć filia gildii krawców, lub
+            <li>literę S, jeśli w mieście ma się znaleźć filia gildii szwaczek, lub
+            <li>literę N, jeśli w mieście nie ma się znaleźć filia żadnej z dwóch gildii.
+        </ul>
+
+        <h1 class="title task-io-example-title">Przykład: [TEST0]</h1>
+        <div class="columns task-io-example">
+            <div class="column task-input">
+            <h2 class="subtitle"> Wejście </h2>
+<pre>
+7 8
+1 2
+3 4
+5 4
+6 4
+7 4
+5 6
+5 7
+6 7
+</pre>
+            </div>
+            <div class="column task-input">
+            <h2 class="subtitle"> Wyjście </h2>
+<pre>
+TAK
+K
+S
+K
+S
+K
+K
+N
+</pre>
+            </div>
+        </div>
+    </section>
+</div>
