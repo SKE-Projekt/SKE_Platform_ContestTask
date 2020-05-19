@@ -1,0 +1,92 @@
+# Zadanie 
+# Rozwiązanie przykładowe
+# SKEProjekt - Kamil Tokarski
+
+Function getIthPermutation(Int length, Int indeks) : List
+    Int i = 0;
+    Int k = 1;
+
+    List perm = {};
+    List fact = {1};
+
+    # Factorial
+    Loop(k leq length)
+        fact = fact + {fact[k - 1] * k};
+        k = k + 1;
+    EndLoop
+
+    # Factorial code
+    k = 0;
+    Loop(k < length)
+        perm = perm + {indeks / fact[length - 1 - k]};
+        indeks = indeks % fact[length - 1 - k];
+
+        k = k + 1;
+    EndLoop
+
+    # Getting the perm
+    k = length - 1;
+    Loop(k > 0)
+        Int j = k - 1;
+        Loop(j geq 0)
+            If (perm[j] leq perm[k])
+                perm[k] = perm[k] + 1;
+            EndIf
+            j = j - 1;
+        EndLoop
+        k = k - 1;
+    EndLoop
+
+    perm;
+EndFunction
+
+Function toString(Int item) : String
+    If (item eq 0)
+        "0";
+    ElseIf(item eq 1)
+        "1";
+    ElseIf(item eq 2)
+        "2";
+    ElseIf(item eq 3)
+        "3";
+    ElseIf(item eq 4)
+        "4";
+    ElseIf(item eq 5)
+        "5";
+    ElseIf(item eq 6)
+        "6";
+    ElseIf(item eq 7)
+        "7";
+    ElseIf(item eq 8)
+        "8";
+    ElseIf(item eq 9)
+        "9";
+    ElseIf(item eq 10)
+        "10";
+    ElseIf(item eq 11)
+        "11";
+    ElseIf(item eq 12)
+        "12";
+    Else
+        "?";
+    EndIf
+EndFunction
+
+Int t;
+Read(t);
+Loop(t > 0)
+
+    Int N; Int I;
+    Read(N, I);
+    List k = getIthPermutation(N, I);
+    String k_out = "";
+
+    Int i = 0;
+    Loop(i < N)
+        k_out = k_out + toString(k[i]) + " ";
+        i = i + 1;
+    EndLoop
+
+    Print(k_out);
+    t = t - 1;
+EndLoop

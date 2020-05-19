@@ -1,0 +1,6 @@
+Function funkcja(List l) : Int
+    0;
+EndFunction
+
+List k  = {1, 2, 3};
+funkcja(k);

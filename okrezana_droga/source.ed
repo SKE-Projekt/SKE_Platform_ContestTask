@@ -1,0 +1,112 @@
+
+#include <stdio.h>
+#define SWAP(a,b) tmp=a; a=b; b=tmp
+
+# int N, X[12], Y[12];
+Int N;
+List X = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+List Y = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+List P = {0};
+List R = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+
+Function swap(Int i, Int j) : Int
+    Int tmp = R[i];
+    R[i] = R[j];
+    R[j] = tmp;
+EndFunction
+
+Function getDirection(Int x1, Int y1, Int x2, Int y2) : Int
+    If (x1 neq x2 and y1 neq y2) -1;
+  ElseIf (x1 eq x2 and y1<y2) 0;
+  ElseIf (x1 eq x2 and y1>y2) 1;
+  ElseIf (y1 eq y2 and x1<x2) 2;
+  ElseIf (y1 eq y2 and x1>x2) 3;
+  EndIf
+EndFunction
+
+# /* Check a permutation... */
+# int check(int *p)
+# {
+#   int i;
+#   for (i=1; i<=N+1; i++) 
+#     if (get_dir(X[p[i]], Y[p[i]], X[p[i-1]], Y[p[i-1]])==-1) return 0;
+#   for (i=1; i<=N; i++) 
+#     if (get_dir(X[p[i]], Y[p[i]], X[p[i-1]], Y[p[i-1]]) ==
+# 	get_dir(X[p[i+1]], Y[p[i+1]], X[p[i]], Y[p[i]])) return 0;
+#   return 1;
+# }
+
+Function checkPerm() : Int
+    Int return_val = 1;
+    Int i = 1;
+    Loop(i leq (N + 1))
+        Print(P[i]);
+        If (getDirection(X[P[i]], Y[P[i]], X[P[i - 1]], Y[P[i - 1]]) eq -1) return_val = 0; i = (N + 1); EndIf
+        i = i + 1;
+    EndLoop
+
+    If (return_val eq 1)
+        i = 1;
+        Loop(i leq N)
+        If (getDirection(X[P[i]], Y[P[i]], X[P[i - 1]], Y[P[i - 1]]) eq
+            getDirection(X[P[i + 1]], Y[P[i + 1]], X[P[i]], Y[P[i]]) ) return_val = 0; i = (N + 1); EndIf
+            i = i + 1;
+        EndLoop
+    EndIf
+    return_val;
+EndFunction
+
+# /* Generate and check all permutations... */
+# int perm(int n, int *so_far, int *remaining)
+# {
+#   int i, tmp, total=0;
+#   if (n==N) return check(so_far);
+#   for (i=0; i<N-n; i++) {
+#     so_far[n+1] = remaining[i];
+#     SWAP(remaining[i], remaining[N-n-1]);
+#     total += perm(n+1, so_far, remaining);
+#     SWAP(remaining[i], remaining[N-n-1]);
+#   }    
+#   return total;
+# }
+
+Function getAllPerms(Int n) : Int
+    Int i;
+    Int total = 0;
+
+    If (n eq N)
+        total = checkPerm();
+    Else
+        i = 0;
+        Loop(i < (N - n))
+            Print("I : ", i);
+            If (Len(P) leq (n + 1))
+                P = P + {R[i]};
+            Else
+                P[n + 1] = R[i];
+            EndIf
+            Print(P);
+            swap(i, N - n - 1);
+            total = total + getAllPerms(n + 1);
+            swap(i, N - n - 1);
+            i = i + 1;
+        EndLoop
+    EndIf
+
+    total;
+EndFunction
+
+Read(N);
+Int i = 0;
+Loop(i < N)
+    Int x;
+    Int y;
+
+    Read(x, y);
+    X[i + 1] = x;
+    Y[i + 1] = y;
+
+    i = i + 1;
+EndLoop
+
+Print("W: ", getAllPerms(0));

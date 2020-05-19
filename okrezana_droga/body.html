@@ -1,0 +1,66 @@
+<div class="task-body">
+    <section class="task-header">
+        <h1 class="title"> Kółko i krzyżyk </h1>
+        <h1 class="subtitle">Pamięć: Nie określona</h1>
+        <h1 class="subtitle">Limit czasowy: 15s </h1>
+    </section>
+
+    <section class="task-tresc">
+        <p>
+            Każdego dnia listonosz Bajt wykonuje swoje zwyczajowe obejście po swoim rejonie, składającym się z N domów.
+        </p>
+        <p>
+            Położenie każdego z domów przedstawić możemy jako punkt na płaszczyźnie. Bajt startuje ze swojego domu umiejscowionego w miejscu (0, 0). Chcąc ubarwić nieco swą codzienność postanowił nałożyć pewne ograniczenia na swoje metody poruszania się:
+        </p>
+
+        <ul>
+            <li>Od domu do domu może poruszać się jedynie prostopadle do, którejś z osi - do góry, w dół, w lewo, w prawo</li>
+            <li>Może zmieniać kierunek w którym się porusza jedynie będąc przy jakimś domu</li>
+            <li>Kiedy zdecyduje się zmienić kierunek, może obrócić się o 90 lub 180 stopni</li>
+            <li>Swoją podróż musi zakończyć u siebie w domu</li>
+        </ul>
+
+        <p>
+            Oblicz proszę ile różnych sposobów na obejście swojego rejonu ma Bajt, jeżeli pozwoli sobie na zmianę kierunku dokładnie raz przy każdym z domów. Może przy tym wielokrotnie przejechać obok dowolnego domu bez zmiany swojego kierunku(może być to zero).
+        </p>
+    </section>
+
+    <section class="task-io">
+        <h1 class="title task-io-header">Wejście / Wyjście</h1>
+        <p>
+            Na wejściu otrzymasz jedną liczbę całkowitę N oznaczającą liczbę domów w rejonie Bajta(nie wliczając jego własnego). Następnie otrzymasz N par liczb całkowitych X_i, Y_i będących miejscem położenia i-tego domu w rejonie Bajta.
+        </p>
+
+        <p>
+            Na wyjściu napisz jedną liczbą całkowitą będącą liczbą różnych sposobów na jakie Bajt może objechać rejon zgodnie ze swoimi wytycznymi.
+        </p>
+
+        <pre style="margin: auto;">
+1 <= N <= 10
+-1000 <= X_i, Y_i <= 1000
+</pre>
+        <h1 class="title task-io-example-title">Przykład: [TEST0]</h1>
+        <div class="columns task-io-example">
+            <div class="column task-input">
+                <h2 class="subtitle"> Wejście </h2>
+                <pre>
+4
+0 1
+2 1
+2 0
+2 -5
+</pre>
+            </div>
+            <div class="column task-input">
+                <h2 class="subtitle"> Wyjście </h2>
+                <pre>
+2
+
+(możliwe drogi to
+1-2-4-3
+3-4-2-1)
+</pre>
+            </div>
+        </div>
+    </section>
+</div>
