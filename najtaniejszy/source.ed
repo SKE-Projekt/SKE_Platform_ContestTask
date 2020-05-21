@@ -1,0 +1,180 @@
+# Zadanie najtaniejszy
+# Rozwiązanie przykładowe
+# SKE Kamil Tokarski
+
+Function genList(Int size) : List
+    List l = {};
+    Int i = 0;
+    Loop(i < size)
+        l = l + {i};
+        i = i + 1;
+    EndLoop;
+    l;
+EndFunction
+
+List s_arr = {};
+Int are_array = 1;
+
+Function merge(Int l, Int m, Int r) : Int
+    # Print(l, " : ", m, " : ", r);
+    Int i = 0;
+    Int j = 0;
+    Int k = 0;
+
+    Int n1 = (m - l) + 1;
+    Int n2 = r - m;
+
+    List r_arr = {};
+    List l_arr = {};
+
+    Loop(i < n1)
+        l_arr = l_arr + {s_arr[l + i]};
+        i = i + 1;
+    EndLoop
+    Loop(j < n2)
+        r_arr = r_arr + {s_arr[m + 1 + j]};
+        j = j + 1;
+    EndLoop
+    # Print("OK");
+    # Print(l_arr);
+    # Print(r_arr);
+
+    i = 0;
+    j = 0;
+    k = l;
+    # Print("(", i, " < ", n1, ") and (", j, " < ", n2, ")");
+    Loop((i < n1) and (j < n2))
+        # Print("TRUE");
+        If (are_array)
+            If (l_arr[i][0] < r_arr[j][0])
+                s_arr[k] = l_arr[i];
+                i = i + 1;
+            ElseIf (l_arr[i][0] eq r_arr[j][0])
+                If (l_arr[i][1] leq r_arr[j][1])
+                    s_arr[k] = l_arr[i];
+                    i = i + 1;
+                Else
+                    s_arr[k] = r_arr[j];
+                    j = j + 1;
+                EndIf
+            Else
+                s_arr[k] = r_arr[j];
+                j = j + 1;
+            EndIf
+        Else
+            If (l_arr[i] leq r_arr[j])
+                s_arr[k] = l_arr[i];
+                i = i + 1;
+            Else
+                s_arr[k] = r_arr[j];
+                j = j + 1;
+            EndIf
+        EndIf
+        k = k + 1;
+        # Print("(", i, " < ", n1, ") and (", j, " < ", n2, ")");
+    EndLoop
+    
+    Loop(i < n1)
+        # Print("T");
+        s_arr[k] = l_arr[i];
+        i = i + 1;
+        k = k + 1;
+    EndLoop
+
+    Loop(j < n2)
+        # Print("K");
+        s_arr[k] = r_arr[j];
+        j = j + 1;
+        k = k + 1;
+    EndLoop
+EndFunction
+
+Function sort(Int l, Int r) : Int
+    If (l < r)
+        Int m = (l + r) / 2;
+        sort(l, m);
+        sort(m + 1, r);
+
+        merge(l, m, r);
+        # Print(s_arr);
+    EndIf
+EndFunction
+
+Int N;
+Int M;
+List edges = {};
+
+# s_arr = {3, 7, 1, 2, 1, 5};
+# s_arr = {3, 7, 1, 2};
+# sort(0, Len(s_arr) - 1);
+# Print(s_arr);
+
+Read(N, M);
+Int i = 0;
+Loop(i < M)
+    Int a;
+    Int b;
+    Int c;
+
+    Read(a, b, c);
+    edges = edges + {{c, i, a, b}};
+    i = i + 1;
+EndLoop
+# Print("WTF");
+
+List connected = genList(N + 1);
+List used = {};
+s_arr = edges;
+# Print(s_arr);
+sort(0, Len(s_arr) - 1);
+# Print("LUZ");
+edges = s_arr;
+# Print(edges);
+
+Function find(Int x) : Int
+    If (connected[x] eq x)
+        x;
+    Else
+        connected[x] = find(connected[x]);
+    EndIf
+EndFunction
+
+Function Unite(Int a, Int b) : Int
+    a = find(a);
+    b = find(b);
+
+    connected[a] = b;
+EndFunction
+
+i = 0;
+Int cost = 0;
+Loop(i < M)
+    Int a = find(edges[i][2]);
+    Int b = find(edges[i][3]);
+
+    If (a eq b)
+        # Print(edges[i][2], " <-> ", edges[i][3]);
+        1; # NOP
+        1;
+    Else
+        # Print("BIORE: ", i);
+        cost = cost + edges[i][0];
+        used = used + {edges[i][1]};
+
+        Unite(a, b);
+    EndIf
+    i = i + 1;
+EndLoop
+
+s_arr = used;
+are_array = 0;
+sort(0, Len(s_arr) - 1);
+used = s_arr;
+
+Print("KOSZT: ", cost);
+Print("UŻYTE: ");
+i = 0;
+Loop(i < Len(used))
+    Print("    ", used[i] + 1);
+    i = i + 1;
+EndLoop

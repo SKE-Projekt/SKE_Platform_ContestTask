@@ -1,0 +1,77 @@
+<div class="task-body">
+    <section class="task-header">
+        <h1 class="title"> Najtaniejszy </h1>
+        <h1 class="subtitle">Pamięć: Nie określona</h1>
+        <h1 class="subtitle">Limit czasowy: 20s </h1>
+    </section>
+
+    <section class="task-tresc">
+        <p>
+            Bitek z powodu pracy zmuszony jest objechać prawie, że cały świat. Jako, że jego szef jest sknerą a loty kosztują, Bitek ma teraz znaleźć jak najtańszą trasę odwiedzającą wszystkie państwa.
+        </p>
+        <p>
+            Bitkowi udało się znaleźć kupon na super ofertę - po wykupie pewnej trasy może latać nią bez ograniczeń. Niestety tras jest zbyt dużo dla Bitka dlatego poprosił cię o pomoc.
+        </p>
+        <p>
+            Jako, że Bitek musi zająć się przygotowaniem do pracy w trakcie tej podróży poprosił cię abyś dla jego wygody postarał się aby wybrany zbiór składał się z tras o jak najmniejszym numerze - nie ma on czasu ani chęci na spamiętywanie dużych liczb
+        </p>
+        
+        <p>
+            Pomóż znaleźć Bitkowi zbiór tras, który:
+        </p>
+        <pre>
+    * Zapewni możliwość odwiedzenia wszystkich N państ
+    * Suma kosztów tras będzie najniższa ze wszystkich możliwych zbiorów
+    * Posortowany zbiór numerów wybranych tras będzie najmniejszy 
+        leksykograficzne ze wszystkich możliwych
+</pre>
+    </section>
+
+    <section class="task-io">
+        <h1 class="title task-io-header">Wejście / Wyjście</h1>
+        <p>
+            W pierszej linii wejścia otrzymasz dwie liczby całkowite N i M(3 <= N <= 300), (N + 2 <= M <= 500) oznaczające odpowiednio liczbę państw i liczbę dostępnych tras.
+        </p>
+        <p>
+            Następnie otrzymasz M linii wejścia. (I+1)-sza linia wejścia opisuję trasę o numerze I za pomocą trzech liczb A, B oznaczających z jakiego państwa do jakiego możemy przelecieć daną trasą oraz C oznaczającą koszt wykupienia danej trasy(1 <= A, B <= N; 1 <= C <= 1000).
+        </p>
+
+        <p>
+            Na wyjściu należy wypisać całkowity koszt podróży oraz wypisać numery wybranych tras.
+        </p>
+
+        <h1 class="title task-io-example-title">Przykład: [TEST0]</h1>
+        <div class="columns task-io-example">
+            <div class="column task-input">
+                <h2 class="subtitle"> Wejście </h2>
+                <pre>
+6 11
+1 2 12
+2 3 10
+3 4 12
+4 5 10
+5 6 1
+2 5 20
+3 2 38
+5 3 22
+2 5 37
+3 3 28
+1 4 33
+</pre>
+            </div>
+            <div class="column task-input">
+                <h2 class="subtitle"> Wyjście </h2>
+                <pre>
+KOSZT: 45
+UŻYTE: 
+    1
+    2
+    3
+    4
+    5
+</pre>
+<h1 class="has-text-centered" style="font-size: .8rem"><i>Przed numerem trasy należy wypisać 4 spacje.</i></h1>
+            </div>
+        </div>
+    </section>
+</div>
